@@ -140,8 +140,8 @@ module HomebrewEnvExtension
   alias_method :gcc_4_2, :gcc
 
   def llvm
-    self['CC']  = "/usr/bin/llvm-gcc"
-    self['CXX'] = "/usr/bin/llvm-g++"
+    self['CC']  = "/opt/local/bin/gcc-mp-4.5"
+    self['CXX'] = "/opt/local/bin/g++-mp-4.5"
     @compiler = :llvm
   end
 
