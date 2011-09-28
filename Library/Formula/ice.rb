@@ -7,6 +7,7 @@ class Ice < Formula
 
   depends_on 'berkeley-db'
   depends_on 'mcpp'
+  depends_on 'libiconv'
 
   def patches
     # Patch for Ice-3.4.1 to work with Berkely DB 5.X.
@@ -37,7 +38,8 @@ class Ice < Formula
     end
 
     inreplace "cpp/config/Make.rules.Darwin" do |s|
-      s.change_make_var! "CXXFLAGS", "#{ENV.cflags} -Wall -D_REENTRANT"
+      s.change_make_var! "CXX", "#{ENV.cxx}"
+      s.change_make_var! "CXXFLAGS", "#{ENV.cflags} -Wall -D_REENTRANT #{ENV.ldflags} #{ENV['CPPFLAGS']}"
     end
 
     Dir.chdir "cpp" do
