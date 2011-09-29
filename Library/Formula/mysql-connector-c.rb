@@ -1,18 +1,12 @@
 require 'formula'
 
 class MysqlConnectorC < Formula
+  version '6.0.2'
   homepage 'http://dev.mysql.com/downloads/connector/c/6.0.html'
-  url 'http://mysql.llarian.net/Downloads/Connector-C/mysql-connector-c-6.0.2.tar.gz'
-  md5 'f922b778abdd25f7c1c95a8329144d56'
-
-  depends_on 'cmake' => :build
-
-  fails_with_llvm "Error: unsupported inline asm.", :build => 2334
+  url 'http://mysql.mirrors.pair.com/Downloads/Connector-C/mysql-connector-c-6.0.2-osx10.5-x86-64bit.tar.gz'
+  md5 '254829149c9b5f5707d956e592c81cfc'
 
   def install
-    system "cmake . #{std_cmake_parameters}"
-    system 'make'
-    ENV.j1
-    system 'make install'
+    system "cp -r * #{prefix}"
   end
 end
