@@ -47,6 +47,9 @@ class Ice < Formula
       system "make install"
     end
 
+    system "mkdir #{prefix}/share"
+    system "ln -s ../slice #{prefix}/share/slice"
+
   end
 
 end

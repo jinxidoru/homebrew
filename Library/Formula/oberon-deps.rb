@@ -10,6 +10,8 @@ class OberonDeps < Formula
   depends_on 'ice'
   depends_on 'mysql++'
   depends_on 'boost'
+  depends_on 'libxml2'
+  depends_on 'readline'
 
   def install
   end
